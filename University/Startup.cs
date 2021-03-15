@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-// using University.Models;
+using University.Models;
 
-namespace ToDoList
+namespace University
 {
   public class Startup
   {
