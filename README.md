@@ -130,6 +130,6 @@ Functionality___
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2021, Logan Roth.
+Copyright (c) 2021, Logan Roth, Connor Burgess, Scott, Glen Buck.
 
 Please contact Contributor for further use information or if you would like to make a contribution.
