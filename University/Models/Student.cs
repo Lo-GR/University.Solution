@@ -11,6 +11,7 @@ namespace University.Models
     }
     public int StudentId { get; set; }
     public string StudentName { get; set; }
+    public string StudentGpa { get; set; }
     public DateTime DateOfEnrollment { get; set; }
     public virtual ICollection<CourseStudent> JoinEntities { get; }
   }

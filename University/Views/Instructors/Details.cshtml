@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model University.Models.Instructor;
+
+
+<h2>Instructor Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.InstructorName): @Html.DisplayFor(model => model.InstructorName)</h3>
+
+@if(@Model.JoinEntities2.Count == 0)
+{
+  <p>This instructor has tenure and, as such, never works</p>
+}
+else
+{
+  <h4>Courses taught by instructor</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities2)
+  {
+    <li>@join.Course.CourseName</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to instructors", "Index")</p>
+<p>@Html.ActionLink("Add a Course", "AddCourse", new { id = Model.InstructorId })</p>
