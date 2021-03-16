@@ -53,65 +53,65 @@ namespace University.Controllers
         return RedirectToAction("Index");
     }
   
-    // public ActionResult Edit(int id)
-    // {
-    //     var thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
-    //     ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-    //     return View(thisItem);
-    // }
+    public ActionResult Edit(int id)
+    {
+        var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+        ViewBag.StudentId = new SelectList(_db.Students, "StudentId", "StudentName");
+        return View(thisCourse);
+    }
 
-    // [HttpPost]
-    // public ActionResult Edit(Item item, int CategoryId)
-    // {
-    //   if (CategoryId != 0)
-    //   {
-    //     _db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
-    //   }
-    //   _db.Entry(item).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Edit(Course course, int StudentId)
+    {
+      if (StudentId != 0)
+      {
+        _db.CourseStudent.Add(new CourseStudent() { StudentId = StudentId, CourseId = course.CourseId });
+      }
+      _db.Entry(course).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // public ActionResult AddCategory(int id)
-    // {
-    //     var thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
-    //     ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-    //     return View(thisItem);
-    // }
+    public ActionResult AddStudent(int id)
+    {
+        var thisItem = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+        ViewBag.StudentId = new SelectList(_db.Students, "StudentId", "StudentName");
+        return View(thisItem);
+    }
 
-    // [HttpPost]
-    // public ActionResult AddCategory(Item item, int CategoryId)
-    // {
-    //     if (CategoryId != 0)
-    //     {
-    //     _db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
-    //     }
-    //     _db.SaveChanges();
-    //     return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult AddStudent(Course course, int StudentId)
+    {
+        if (StudentId != 0)
+        {
+        _db.CourseStudent.Add(new CourseStudent() { StudentId = StudentId, CourseId = course.CourseId });
+        }
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
 
-    // public ActionResult Delete(int id)
-    // {
-    //     var thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
-    //     return View(thisItem);
-    // }
+    public ActionResult Delete(int id)
+    {
+        var thisItem = _db.Courses.FirstOrDefault(course=> course.CourseId == id);
+        return View(thisItem);
+    }
 
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //     var thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
-    //     _db.Items.Remove(thisItem);
-    //     _db.SaveChanges();
-    //     return RedirectToAction("Index");
-    // }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        var thisItem = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+        _db.Courses.Remove(thisItem);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
 
-    // [HttpPost]
-    // public ActionResult DeleteCategory(int joinId)
-    // {
-    //     var joinEntry = _db.CategoryItem.FirstOrDefault(entry => entry.CategoryItemId == joinId);
-    //     _db.CategoryItem.Remove(joinEntry);
-    //     _db.SaveChanges();
-    //     return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult DeleteStudent(int joinId)
+    {
+        var joinEntry = _db.CourseStudent.FirstOrDefault(entry => entry.CourseStudentId == joinId);
+        _db.CourseStudent.Remove(joinEntry);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
   }
 }
