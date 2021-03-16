@@ -40,18 +40,18 @@ namespace University.Controllers
       return View();
     }
 
-    // [HttpPost]
-    // public ActionResult Create(Item item, int CategoryId)
-    // {
-    //     _db.Items.Add(item);
-    //     _db.SaveChanges();
-    //     if (CategoryId != 0)
-    //     {
-    //         _db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
-    //     }
-    //     _db.SaveChanges();
-    //     return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Create(Course course, int StudentId)
+    {
+        _db.Courses.Add(course);
+        _db.SaveChanges();
+        if (StudentId != 0)
+        {
+            _db.CourseStudent.Add(new CourseStudent() { StudentId = StudentId, CourseId = course.CourseId });
+        }
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
   
     // public ActionResult Edit(int id)
     // {
