@@ -7,8 +7,12 @@
 <h4>Add a new student</h4>
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.StudentName)
+    @Html.LabelFor(model => model.StudentName, "Student Name: ")
     @Html.TextBoxFor(model => model.StudentName)
+    @Html.LabelFor(model => model.DateOfEnrollment, "Date of Enrollment: ")
+    @Html.TextBoxFor(model => model.DateOfEnrollment, new { @type = "date" })
+    
+
     <input type="submit" value="Add new student" />
 }
 <p>@Html.ActionLink("Show all students", "Index")</p>

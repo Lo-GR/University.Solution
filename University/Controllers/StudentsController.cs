@@ -4,13 +4,13 @@ using University.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ToDoList.Controllers
+namespace University.Controllers
 {
-  public class CategoriesController : Controller
+  public class StudentsController : Controller
   {
     private readonly UniversityContext _db;
 
-    public CategoriesController (UniversityContext db)
+    public StudentsController (UniversityContext db)
     {
       _db = db;
     }
@@ -40,6 +40,8 @@ namespace ToDoList.Controllers
         .Include(student => student.JoinEntities)
         .ThenInclude(join => join.Course)
         .FirstOrDefault(student => student.StudentId == id);
+
+        
     return View(thisStudent);
 }
     public ActionResult Edit(int id)
