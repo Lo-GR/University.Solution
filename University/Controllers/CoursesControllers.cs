@@ -34,11 +34,11 @@ namespace University.Controllers
     }
 
 
-    // public ActionResult Create()
-    // {
-    //   ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-    //   return View();
-    // }
+    public ActionResult Create()
+    {
+      ViewBag.StudentId = new SelectList(_db.Students, "StudentId", "StudentName");
+      return View();
+    }
 
     // [HttpPost]
     // public ActionResult Create(Item item, int CategoryId)
